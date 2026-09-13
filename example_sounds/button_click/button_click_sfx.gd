@@ -16,4 +16,4 @@ func get_audio_manager() -> void:
 func on_pressed() -> void:
 	if !audio_manager_exists: return
 	# play the sound effect
-	AudioManager.play_sound_effect(button_sfx, false)
+	AudioManager.play_sound_effect(button_sfx)
