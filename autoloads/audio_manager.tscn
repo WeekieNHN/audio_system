@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://byidk74fo37l3"]
 
 [ext_resource type="Script" uid="uid://pgqy44lrslb2" path="res://addons/audio_system/autoloads/audio_manager.gd" id="1_1i1i5"]
+[ext_resource type="PackedScene" uid="uid://csjxb1tyghe1b" path="res://addons/audio_system/example_sounds/button_click/button_click_sfx.tscn" id="2_dbeoy"]
 
 [node name="AudioManager" type="Node3D" unique_id=1928255905]
 script = ExtResource("1_1i1i5")
+button_click_sfx_scene = ExtResource("2_dbeoy")

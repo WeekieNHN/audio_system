@@ -23,3 +23,15 @@ func play_sound_effect(sound: AudioStream, positional: bool = false) -> void:
 
 		# Play the sound
 		stream_player.play()
+
+
+@export var button_click_sfx_scene: PackedScene = null
+func add_ui_sfx(node: Node) -> void:
+	if button_click_sfx_scene:
+		for button in node.find_children("*", "Button", true, false):
+			# Skip if already has button SFX
+			if button.get_children().any(func(child): return child is ButtonClickSFX): 
+				print(button.name)
+				continue
+			# Add buttons click sfx
+			button.add_child(button_click_sfx_scene.instantiate())

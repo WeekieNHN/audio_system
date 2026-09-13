@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://csjxb1tyghe1b"]
+
+[ext_resource type="Script" uid="uid://beqm3sjig2h36" path="res://addons/audio_system/example_sounds/button_click/button_click_sfx.gd" id="1_6gpie"]
+[ext_resource type="AudioStream" uid="uid://bo73wkqbqvr6k" path="res://addons/audio_system/example_sounds/button_click/ui_button_click.mp3" id="2_ovetn"]
+
+[node name="ButtonClickSFX" type="Node" unique_id=1305499555]
+script = ExtResource("1_6gpie")
+button_sfx = ExtResource("2_ovetn")
+metadata/_custom_type_script = "uid://beqm3sjig2h36"
