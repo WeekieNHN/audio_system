@@ -7,11 +7,11 @@ extends Node3D
 ## Heavily Edited 
 ##
 
-func play_sound_effect(sound: AudioStream, position: Vector3 = Vector3.ZERO) -> void:
+func play_sound_effect(sound: AudioStream, position: Vector3 = Vector3.ZERO, random_pitch: bool = true) -> void:
 	# Skip if null sound, nothing to do
 	if sound == null: return
 	# Set variables for later use
-	var pitch_range: Vector2 = Vector2(0.95, 1.05)
+	var pitch_range: Vector2 = Vector2(0.95, 1.05) 
 	var volume_db: float = 1.0
 	var pause_behaviour = PROCESS_MODE_INHERIT
 	# Create a stream player
@@ -20,7 +20,7 @@ func play_sound_effect(sound: AudioStream, position: Vector3 = Vector3.ZERO) -> 
 	stream_player.stream = sound
 	stream_player.bus = sound_effects_bus_name
 	stream_player.finished.connect(stream_player.queue_free)
-	stream_player.pitch_scale = randf_range(pitch_range.x, pitch_range.y)
+	if random_pitch: stream_player.pitch_scale = randf_range(pitch_range.x, pitch_range.y)
 	stream_player.volume_db = volume_db
 	# Add the new stream player to scene tree
 	add_child(stream_player)
