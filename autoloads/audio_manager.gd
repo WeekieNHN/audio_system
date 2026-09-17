@@ -7,7 +7,7 @@ extends Node3D
 ## Heavily Edited 
 ##
 
-func play_sound_effect(sound: AudioStream, position: Vector3 = Vector3.ZERO, random_pitch: bool = true) -> void:
+func play_sound_effect(sound: AudioStream, position: Variant = null, random_pitch: bool = true) -> void:
 	# Skip if null sound, nothing to do
 	if sound == null: return
 	# Set variables for later use
@@ -15,7 +15,7 @@ func play_sound_effect(sound: AudioStream, position: Vector3 = Vector3.ZERO, ran
 	var volume_db: float = 1.0
 	var pause_behaviour = PROCESS_MODE_INHERIT
 	# Create a stream player
-	var stream_player = AudioStreamPlayer.new() if position == Vector3.ZERO else AudioStreamPlayer3D.new()
+	var stream_player = AudioStreamPlayer.new() if position == null else AudioStreamPlayer3D.new()
 	# Set Properties
 	stream_player.stream = sound
 	stream_player.bus = sound_effects_bus_name
@@ -25,7 +25,7 @@ func play_sound_effect(sound: AudioStream, position: Vector3 = Vector3.ZERO, ran
 	# Add the new stream player to scene tree
 	add_child(stream_player)
 	# If the stream is positional (we gave it a position)
-	if position != Vector3.ZERO:
+	if position != null:
 		stream_player = stream_player as AudioStreamPlayer3D
 		# Set the position
 		stream_player.global_position = position
@@ -43,7 +43,6 @@ func add_ui_sfx(node: Node) -> void:
 		for button in node.find_children("*", "Button", true, false):
 			# Skip if already has button SFX
 			if button.get_children().any(func(child): return child is ButtonClickSFX): 
-				print(button.name)
 				continue
 			# Add buttons click sfx
 			button.add_child(button_click_sfx_scene.instantiate())
