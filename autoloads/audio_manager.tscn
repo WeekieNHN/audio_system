@@ -6,6 +6,3 @@
 [node name="AudioManager" type="Node3D" unique_id=1928255905]
 script = ExtResource("1_1i1i5")
 button_click_sfx_scene = ExtResource("2_dbeoy")
-
-[node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=1993520664]
-current = true
